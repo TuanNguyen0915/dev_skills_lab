@@ -12,4 +12,25 @@ function index(req, res) {
     })
 }
 
-export { index }
+function newSkill(req, res) {
+  res.render("skills/new")
+}
+
+function create(req, res) {
+  req.body.learning = true
+  Skill.create(req.body)
+    .then(skill => {
+      res.redirect("/skills")
+    })
+}
+
+function show(req, res) {
+  Skill.findById(req.params.skillId).then(skill => {
+    res.render("skills/show", { skill: skill })
+  }).catch(err => {
+    console.log(err);
+    res.redirect("/skills")
+  })
+}
+
+export { index, newSkill as new, create, show }

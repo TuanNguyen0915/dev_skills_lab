@@ -12,10 +12,13 @@
   <ul>
     <% skills.forEach(skill=> { %>
       <li>
-        <%= skill.name %> - isLearning: <%= skill.learning?"Yes":"No" %>
+        <a href="/skills/<%= skill._id %>">
+          <%= skill.name %>
+        </a> - Learning: <%= skill.learning?"Yes":"No" %>
       </li>
       <% }) %>
   </ul>
+  <a href="/skills/add-new-skill">Add New Skill</a>
 </body>
 
 </html>
