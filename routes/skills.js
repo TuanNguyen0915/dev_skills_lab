@@ -10,5 +10,6 @@ router.get('/add-new-skill', skillsCtrl.new)
 router.post('/', skillsCtrl.create)
 router.get('/:skillId', skillsCtrl.show)
 router.delete('/:skillId', skillsCtrl.delete)
-
+router.get('/:skillId/edit', skillsCtrl.edit)
+router.put('/:skillId', skillsCtrl.update)
 export { router }
