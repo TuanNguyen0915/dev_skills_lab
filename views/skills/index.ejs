@@ -4,14 +4,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/stylesheets/style.css">
   <title>Dev-Skills</title>
 </head>
 
 <body>
-  <h1>Dev Skills</h1>
+  <h1>Dev Skills (updated: <%= time %> )</h1>
   <ul>
     <% skills.forEach(skill=> { %>
       <li>
+        <form action="/skills/<%= skill._id %>?_method=delete" class="delete-form" method="post">
+          <button type="submit">X</button>
+        </form>
         <a href="/skills/<%= skill._id %>">
           <%= skill.name %>
         </a> - Learning: <%= skill.learning?"Yes":"No" %>
